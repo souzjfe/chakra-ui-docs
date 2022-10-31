@@ -429,9 +429,8 @@ used.
 ```jsx live=false
 // 1. Import the components and hook
 import {
-  StylesProvider,
+  createStylesContext,
   useMultiStyleConfig,
-  useStyles,
 } from '@chakra-ui/react'
 
 function Menu(props) {
@@ -439,6 +438,7 @@ function Menu(props) {
 
   // 2. Consume the `useMultiStyleConfig` hook
   const styles = useMultiStyleConfig('Menu', { size, variant })
+  const [StylesProvider, useStyles] = createStylesContext('Menu')
 
   return (
     <Flex __css={styles.menu} {...rest}>
